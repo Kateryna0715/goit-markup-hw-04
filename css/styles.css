@@ -118,6 +118,7 @@ img {
   font-weight: 500;
   color: var(--dark);
   padding: 24px 0;
+  transition: color var(--transition);
 }
 
 .header-link:hover,
@@ -132,7 +133,7 @@ img {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -2px;
+  bottom: -1px;
   height: 4px;
   width: 100%;
   background-color: var(--ocean);
@@ -290,7 +291,7 @@ img {
   border-radius: 0px 0px 4px 4px;
 }
 .team-text-contanier {
-  padding: 32px 16px;
+  padding: 32px 0;
 }
 .team-item-title {
   font-weight: 500;
@@ -308,6 +309,7 @@ img {
   display: flex;
   gap: 24px;
   margin-top: 8px;
+  justify-content: center;
 }
 .team-soc-item {
   width: calc((100%-24px) / 4);
@@ -330,6 +332,8 @@ img {
 .team-soc-link:focus {
   background-color: var(--ocean);
 }
+
+/* CUSTOMERS */
 .customers {
   padding: 120px 0;
 }
@@ -359,8 +363,14 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: fill var(--transition);
   color: var(--subtletext);
+  transition: fill var(--transition);
+  transition: color var(--transition), border-color var(--transition);
+}
+.customers-item:hover,
+.customers-item:focus {
+  color: var(--ocean);
+  border-color: var(--ocean);
 }
 .customers-icon {
   fill: currentColor;
@@ -396,7 +406,7 @@ img {
   border-radius: 4px;
   padding: 12px 24px;
   transition: background-color var(--transition), color var(--transition),
-    border var(--transition), box-shadow var(--transition);
+    border-color var(--transition), box-shadow var(--transition);
 }
 .portfolio-btn:hover,
 .portfolio-btn:focus {
@@ -416,7 +426,12 @@ img {
 .projects-item {
   width: calc((100% - 48px) / 3);
 }
-.projects-item:hover {
+.projects-link {
+  display: block;
+  transition: box-shadow var(--transition);
+}
+.projects-link:hover,
+.projects-link:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
@@ -424,11 +439,33 @@ img {
   position: relative;
   overflow: hidden;
 }
+.project-cover-text {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  padding: 40px 32px;
+  background-color: var(--primary-brand);
+  color: var(--light);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transform: translateY(100%);
+  transition: transform var(--transition);
+}
+
+.projects-link:hover .projects-cover-text,
+.projects-link:focus .projects-cover-text {
+  transform: translateY(0);
+}
+
 .project-text {
   padding: 32px 16px;
   border: 1px solid var(--accent-color);
   border-top: none;
 }
+
 .projects-item-title {
   font-weight: 500;
   font-size: 20px;
@@ -443,25 +480,6 @@ img {
   letter-spacing: 0.02em;
   color: var(--body-text);
 }
-.projects-cover-block {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  padding: 40px 32px 164px 32px;
-  background-color: var(--primary-brand);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  transform: translateY(100%);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-.project-cover-text {
-  color: var(--light);
-}
-.projects-item:hover .projects-cover-block,
-.projects-item:focus .projects-cover-block {
-  transform: translateY(0);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
 
 /* FOOTER */
 .footer {
@@ -470,6 +488,10 @@ img {
 }
 .footer-contanier {
   display: flex;
+  align-items: baseline;
+}
+.footer-logo {
+  margin-right: 120px;
 }
 .footer-logo-link {
   font-family: 'Raleway', sans-serif;
@@ -495,16 +517,15 @@ img {
   color: var(--light);
   max-width: 264px;
 }
-.footer-soc-media {
-  margin-left: 120px;
-}
+
 .footer-soc-text {
-  color: var(--light);
+  color: var(--white);
+  font-weight: 500;
   margin-bottom: 16px;
 }
 .footer-soc {
   display: flex;
-  gap: 24px;
+  gap: 16px;
   justify-content: center;
 }
 .footer-soc-link {
@@ -568,4 +589,18 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  transition: background-color var(--transition), border var(--transition);
+}
+.modal-btn:hover,
+.modal-btn:focus {
+  background-color: var(--ocean);
+  border: none;
+}
+.modal-btn-icon {
+  transition: fill var(--transition);
+}
+.modal-btn:hover .modal-btn-icon,
+.modal-btn:focus .modal-btn-icon {
+  fill: var(--white);
 }
